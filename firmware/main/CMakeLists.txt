@@ -1,2 +1,12 @@
-idf_component_register(SRCS "hello_world_main.c"
-                    INCLUDE_DIRS "")
+set(srcs
+    "main.c"
+    "factory_reset.c"
+    "nvs_init.c"
+    "ota_update.c"
+    "platform.c"
+    "zip.c"
+    "system.c"
+)
+
+idf_component_register(SRCS "${srcs}"
+                    INCLUDE_DIRS "./")
