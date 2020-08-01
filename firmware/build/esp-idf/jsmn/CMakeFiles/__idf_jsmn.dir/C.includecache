@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joris/git/new-ESP32-firmware-platform/esp-idf/components/jsmn/include/jsmn.h
+stddef.h
+-
+
+/home/joris/git/new-ESP32-firmware-platform/esp-idf/components/jsmn/src/jsmn.c
+jsmn.h
+/home/joris/git/new-ESP32-firmware-platform/esp-idf/components/jsmn/src/jsmn.h
+
