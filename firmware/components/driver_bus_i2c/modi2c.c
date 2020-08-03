@@ -12,6 +12,7 @@
 #include <driver_i2c.h>
 #endif
 
+
 //#ifdef CONFIG_DRIVER_I2C_ENABLE
 
 STATIC mp_obj_t i2c_read_reg_(mp_obj_t _addr, mp_obj_t _reg, mp_obj_t _len) {
@@ -75,6 +76,7 @@ STATIC MP_DEFINE_CONST_FUN_OBJ_3(i2c_write_reg_obj, i2c_write_reg_);
 STATIC const mp_rom_map_elem_t i2c_module_globals_table[] = {
     {MP_ROM_QSTR(MP_QSTR_i2c_read_reg), MP_ROM_PTR(&i2c_read_reg_obj)},
     {MP_ROM_QSTR(MP_QSTR_i2c_write_reg), MP_ROM_PTR(&i2c_write_reg_obj)},
+	{MP_ROM_QSTR(MP_QSTR_i2c_write_regs), MP_ROM_PTR(&i2c_write_reg_obj)},
     {MP_ROM_QSTR(MP_QSTR_GPIO_SDA), MP_ROM_INT(CONFIG_PIN_NUM_I2C_DATA) },
     {MP_ROM_QSTR(MP_QSTR_GPIO_CLK), MP_ROM_INT(CONFIG_PIN_NUM_I2C_CLK) },
     {MP_ROM_QSTR(MP_QSTR_SPEED), MP_ROM_INT(CONFIG_I2C_MASTER_FREQ_HZ) },
