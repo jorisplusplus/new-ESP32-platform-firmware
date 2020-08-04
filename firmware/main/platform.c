@@ -1,4 +1,5 @@
 #include "include/platform.h"
+#include "include/platform_gen.h"
 #include "driver_framebuffer.h"
 #include <driver/gpio.h>
 
@@ -48,7 +49,11 @@ void fatal_error(const char *message) {
 void platform_init()
 {
 	if (isr_init() != ESP_OK) restart();
-	INIT_DRIVER(vspi         , "VSPI BUS"   ) //Generic VSPI bus driver
+	//Static inits can be performed here
+
+  platform_gen_init();
+  /*
+  INIT_DRIVER(vspi         , "VSPI BUS"   ) //Generic VSPI bus driver
 	INIT_DRIVER(i2c          , "I2C BUS"    ) //Generic I2C bus driver
 	INIT_DRIVER(hub75        , "HUB75"      ) //LED matrix as found on the CampZone 2019 badge
 	INIT_DRIVER(erc12864     , "ERC12864"   ) //128x64 LCD screen as found on the Disobey 2019 badge
@@ -65,7 +70,7 @@ void platform_init()
     INIT_DRIVER(i2c_display  , "I2C DISPLAY") //Generic i2c display
 	INIT_DRIVER(framebuffer  , "FRAMEBUFFER") //Framebuffer driver with basic drawing routines
 	fbReady = true;                           //Notify the error handler that framebuffer support is now available
-	/*
+	
   INIT_DRIVER(mpr121       , "MPR121"     ) //I/O expander with touch inputs as found on the SHA2017 and HackerHotel 2019 badges
     INIT_DRIVER(pca9555      , "PCA9555"     ) //16-bit I/O expander found on the Troopers 2020 badge
 	INIT_DRIVER(disobey_samd , "SAMD"       ) //I/O via the SAMD co-processor on the Disobey 2019 badge
