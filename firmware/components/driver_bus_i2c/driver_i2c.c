@@ -10,8 +10,6 @@
 
 #include "include/driver_i2c.h"
 
-#ifdef CONFIG_DRIVER_I2C_ENABLE
-
 #define I2C_MASTER_NUM             I2C_NUM_1
 #define I2C_MASTER_TX_BUF_DISABLE  0
 #define I2C_MASTER_RX_BUF_DISABLE  0
@@ -362,7 +360,3 @@ esp_err_t driver_i2c_read_event(uint8_t addr, uint8_t *buf)
 
 	return res;
 }
-
-#else // DRIVER_I2C_ENABLE
-esp_err_t driver_i2c_init(void) { return ESP_OK; } // Dummy function, leave empty!
-#endif
