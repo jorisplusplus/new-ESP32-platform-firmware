@@ -1,24 +1,30 @@
 # new-ESP32-platform-firmware
 Experimental try at making esp idf v4.0 micropython project
 
+## Supported environments
+* Linux
+* Mac OS
+* (Maybe WSL 2 on Windows?)
 
 ## Setup
 1. Clone the repo  
 2. run git submodule update --init --recursive  
 3. run install.sh  
-4. source setup.sh to get all the right environment variables
+4. source setenv.sh to get all the right environment variables
 5. ???  
 6. Profit  
 
 ## Build
-1. cd to the firmware folder
-2. execute idf.py build
+* ./build.sh for iteratively building changed code
+* ./clean.sh to clean build cache
+* ./flash.sh to flash to a badge
+* ./monitor.sh to open serial monitor
 
 ## Configuration
-1. idf.py menuconfig  
+* ./config.sh
 
 ## Changes over old firmware
-1. python modules are now placed inside the driver folder. So the micropython folder stays untouched. You need to register the file for it to be include in the build. More on this later.  
+1. python module bridges (e.g. modi2c.c) are now placed inside the driver folder. So the micropython folder stays untouched. You need to register the file for it to be include in the build. More on this later.  
 2. Init in platform.c are now also handled with a generator so you only need to register the init function with cmake. When properly done no dummy init functions are necessary when the driver is disabled.  
 3. All drivers are now compiled with cmake.  
 4. uPy is now based on upstream micropython.    
