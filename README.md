@@ -19,7 +19,7 @@ Experimental try at making esp idf v4.0 micropython project
 
 ## Changes over old firmware
 1. python modules are now placed inside the driver folder. So the micropython folder stays untouched. You need to register the file for it to be include in the build. More on this later.  
-2. Init in platform.c are now also handled with a generator so you only need to register the init function. When properly done no dummy init functions are necessary when the driver is disabled.  
+2. Init in platform.c are now also handled with a generator so you only need to register the init function with cmake. When properly done no dummy init functions are necessary when the driver is disabled.  
 3. All drivers are now compiled with cmake.  
 4. uPy is now based on upstream micropython.    
 5. Bluetooth support is enabled (BLE only for now).    
