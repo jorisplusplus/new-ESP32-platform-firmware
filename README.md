@@ -43,8 +43,8 @@ To register the micropython bindings append your files/name as follows:
 To register driver with an init function register as followed:  
  >set(EXTMODS_INIT "${EXTMODS_INIT}" "\"${mod_name}\"@\"${mod_register}\"^" CACHE INTERNAL "")  
  
- where mod_register is the register message 
- This can also be done in a cmake if statement to not register the init/module when the driver is disabled.
+ where mod_register is the register message. This can also be done in a cmake if statement to not register the init/module when the driver is disabled.  
+ Registering should be done in the project_include.cmake file. This ensures that the mods are registered before micropython is build.
 
 ## Registering builtin python modules
 In the firmware folder there are 2 folders for this. Manifests and modules. The modules folder is collection of modules people can include in their badge build. To include one these modules add to your badge specific manifest. This manifest should be stored in the manifests folder and can be selected in menuconfig.  
