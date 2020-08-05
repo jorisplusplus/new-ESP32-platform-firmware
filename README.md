@@ -52,4 +52,5 @@ To register driver with an init function register as followed:
 1. QSTR regeneration is currently not performed and requires a idf.py clean
 2. uPy configuration options need to be readded.
 3. QSTR generation is still done by calling the uPy makefile this should be ported to cmake but is a bit of black magic
-4. Expect a lot of bugs ;)
+4. Some parts of micropython still need to be compiled with certain flags set.
+5. Expect a lot of bugs ;)
