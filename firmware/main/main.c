@@ -58,17 +58,19 @@ void app_main()
 		esp_restart();
 	}
 
-	// int magic = get_magic();
+	 int magic = get_magic();
 	
-	// switch(magic) {
-	// 	case MAGIC_OTA:
-	// 		badge_ota_update();
-	// 		break;
-	// 	case MAGIC_FACTORY_RESET:
-	// 		factory_reset();
-	// 		break;
-	// 	default:
-	// 		micropython_entry();
-	// }
-	start_mp();
+	 switch(magic) {
+	 	case MAGIC_OTA:
+	 	  // This triggers an Over-the-Air firmware update
+	 		badge_ota_update();
+	 		break;
+	 	case MAGIC_FACTORY_RESET:
+	 	  // This clears any FAT data partitions
+	 		factory_reset();
+	 		break;
+	 	default:
+	 	  // This starts the MicroPython FreeRTOS task
+      start_mp();
+	 }
 }
