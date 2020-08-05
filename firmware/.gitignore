@@ -1,2 +1,4 @@
 build/
 main/platform_gen.c
+sdkconfig.old
+Makefile
