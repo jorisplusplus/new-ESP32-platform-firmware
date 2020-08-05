@@ -48,8 +48,7 @@ To register driver with an init function register as followed:
 
 ## Registering builtin python modules
 In the firmware folder there are 2 folders for this. Manifests and modules. The modules folder is collection of modules people can include in their badge build. To include one these modules add to your badge specific manifest. This manifest should be stored in the manifests folder and can be selected in menuconfig.  
-The $(PORT_DIR) var is linked to the modules folder
-The $(MPY_DIR) var is linked to the uPy component folder. DO NOT store modules in here.
+The $(PORT_DIR) var is linked to the modules folder. The $(MPY_DIR) var is linked to the uPy component folder. DO NOT store modules in here.
 
 
 ## Issues
