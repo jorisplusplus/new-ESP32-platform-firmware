@@ -1,5 +1,4 @@
-freeze("$(PORT_DIR)/", ("_boot.py", "hello_world.py"))
-freeze("$(PORT_DIR)/hello_world.py")
+freeze("$(PORT_DIR)")
 freeze("$(MPY_DIR)/tools", ("upip.py", "upip_utarfile.py"))
 freeze("$(MPY_DIR)/ports/esp8266/modules", "ntptime.py")
 freeze("$(MPY_DIR)/drivers/dht", "dht.py")

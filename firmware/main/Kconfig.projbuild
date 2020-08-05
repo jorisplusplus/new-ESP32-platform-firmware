@@ -71,10 +71,6 @@ menu "Firmware & device configuration"
 	config FW_ENABLE_SHA2017_DISOBEY2019_PARTITION_TABLE_UPGRADE
 		bool "Enable partition table upgrade function for SHA2017 and Disobey 2019 badges"
 		default n
-	
-	config MANIFEST
-		string "Manifest filename"
-		default "example_manifest.py"
 endmenu
 
 #menu "Drivers"
