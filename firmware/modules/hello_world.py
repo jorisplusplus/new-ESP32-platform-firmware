@@ -1,8 +1,8 @@
 
-def hello():    # write Fibonacci series up to n
+def hello():
     print("hello")
 
-def world():   # return Fibonacci series up to n
+def world():
     print("world")
 
 def hello_world():
