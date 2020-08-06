@@ -47,8 +47,8 @@ To register driver with an init function register as followed:
  Registering should be done in the project_include.cmake file. This ensures that the mods are registered before micropython is build.
 
 ## Registering builtin python modules
-In the firmware folder there are 2 folders for this. Manifests and modules. The modules folder is collection of modules people can include in their badge build. To include one these modules add to your badge specific manifest. This manifest should be stored in the manifests folder and can be selected in menuconfig.  
-The $(PORT_DIR) var is linked to the modules folder. The $(MPY_DIR) var is linked to the uPy component folder. DO NOT store modules in here.
+In the main folder there are 2 folders for this. Manifests and python_modules. The python_modules folder is collection of modules people can include in their badge build. To include one these modules add to your badge specific manifest. This manifest should be stored in the manifests folder and can be selected in menuconfig.  
+The $(PORT_DIR) var is linked to the modules folder. The $(BOARD_DIR) is in python_modules/badge_hardware_name folder. This is included in the default manifest. The $(MPY_DIR) var is linked to the uPy component folder. DO NOT store modules in here.
 
 
 ## Issues
