@@ -19,6 +19,10 @@ menu "Firmware & device configuration"
 		help
                 The name of the directory in /python_modules to load into firmware image as static micropython modules.
 
+	config INFO_HARDWARE_MANIFEST
+		string "Manifest to load modules from stored in the manifests folder"
+		default "manifest.py"
+
 	config INFO_HARDWARE_WOEZEL_NAME
 		string "Name of the badge on the app hatchery"
 		default "generic"
