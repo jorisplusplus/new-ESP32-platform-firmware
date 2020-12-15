@@ -123,7 +123,7 @@ void graphics_show(const char* text, uint8_t percentage, bool showPercentage, bo
 		#else
 			#ifdef CONFIG_DRIVER_HUB75_ENABLE
 				compositor_enable();
-				char buff[4];
+				char buff[6];
 				sprintf(buff, "%d%%", percentage);
 				Color col = {.value=0xffffffff};
 				compositor_clear();
