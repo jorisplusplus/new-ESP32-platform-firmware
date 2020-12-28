@@ -47,8 +47,8 @@ def _vcc_callback():
 virtualtimers.new(10000, _vcc_callback, hfpm=True)
 
 ## Dirty fix for upgrade path of existing CZ19 badges
-if machine.nvs_getint("system", 'factory_checked') == 1:
-    machine.nvs_setint("system", 'factory_checked', 2)
+# if machine.nvs_getint("system", 'factory_checked') == 1:
+#     machine.nvs_setint("system", 'factory_checked', 2)
 
 del folders, uos
 gc.collect(); gc.mem_free()

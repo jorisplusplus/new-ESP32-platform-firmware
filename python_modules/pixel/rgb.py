@@ -85,7 +85,8 @@ def image(data, pos=(0,0), size=(8,8)):
 
 
 def getbrightness():
-    return machine.nvs_getint('system', 'brightness')
+    # return machine.nvs_getint('system', 'brightness')
+    return 15
 
 
 def setbrightness(brightness=(MAX_BRIGHTNESS - 2)):
@@ -94,7 +95,8 @@ def setbrightness(brightness=(MAX_BRIGHTNESS - 2)):
 
     # Allow non-visible brightness, but don't make it persistent across reboot
     if brightness >= 1:
-        machine.nvs_setint('system', 'brightness', brightness)
+        # machine.nvs_setint('system', 'brightness', brightness)
+        pass
 
 def setfont(font_index):
     global current_font

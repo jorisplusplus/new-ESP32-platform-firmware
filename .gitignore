@@ -1,1 +1,9 @@
 .vscode/
+firmware/CMakeFiles
+firmware/esp-idf
+firmware/kconfig_bin
+mconf-idf-build
+firmware/mconf-idf-prefix/src/mconf-idf-stamp
+firmware/bootloader-prefix
+firmware/config
+firmware/mconf-idf-prefix

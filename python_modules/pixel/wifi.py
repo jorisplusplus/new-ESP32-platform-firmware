@@ -3,9 +3,12 @@ import network, time, machine, consts
 _STA_IF = network.WLAN(network.STA_IF)
 _AP_IF  = network.WLAN(network.AP_IF)
 
-_DEFAULT_TIMEOUT  = machine.nvs_getint("system", "wifi.timeout") or 20
-_DEFAULT_SSID     = machine.nvs_getstr("system", "wifi.ssid")
-_DEFAULT_PASSWORD = machine.nvs_getstr("system", "wifi.password")
+# _DEFAULT_TIMEOUT  = machine.nvs_getint("system", "wifi.timeout") or 20
+# _DEFAULT_SSID     = machine.nvs_getstr("system", "wifi.ssid")
+# _DEFAULT_PASSWORD = machine.nvs_getstr("system", "wifi.password")
+_DEFAULT_TIMEOUT  = 20
+_DEFAULT_SSID     = 'HoloNet'
+_DEFAULT_PASSWORD = 'partistemporus'
 
 if not _DEFAULT_SSID:
 	_DEFAULT_SSID     = consts.WIFI_SSID

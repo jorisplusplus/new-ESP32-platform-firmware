@@ -1,22 +1,21 @@
 #include <sdkconfig.h>
 
-#ifdef CONFIG_DRIVER_HUB75_ENABLE
+//#ifdef CONFIG_DRIVER_HUB75_ENABLE
 
 #include <string.h>
+#include <stdint.h>
 
 #include "esp_log.h"
-//#include "esp_vfs.h"
-//#include "esp_vfs_fat.h"
 
 #include "py/mperrno.h"
 #include "py/mphal.h"
 #include "py/runtime.h"
 #include "lib/utils/pyexec.h"
 
-//#include "extmod/vfs_native.h"
-
+#ifndef NO_QSTR
 #include <compositor.h>
 #include <driver_hub75.h>
+#endif
 
 #define TAG "esp32/hub75"
 
@@ -133,7 +132,7 @@ STATIC mp_obj_t hub75_image(size_t n_args, const mp_obj_t *args) {
     uint32_t *image = malloc(width*height*4);
 
     for(int i = 0; i < width*height; i++) {
-        image[i] = mp_obj_get_int64(mp_arr[i]);
+        image[i] = mp_obj_get_int(mp_arr[i]);
     }
 
     compositor_addImage((uint8_t *) image, x, y, width, height);
@@ -188,7 +187,7 @@ STATIC mp_obj_t hub75_gif(size_t n_args, const mp_obj_t *args) {
     uint32_t *image = malloc(width*height*4*numframes);
 
     for(int i = 0; i < width*height*numframes; i++) {
-        image[i] = mp_obj_get_int64(mp_arr[i]);
+        image[i] = mp_obj_get_int(mp_arr[i]);
     }
 
     compositor_addAnimation((uint8_t *) image, x, y, width, height, numframes);
@@ -209,7 +208,7 @@ STATIC mp_obj_t hub75_frame(mp_obj_t arr_obj) {
   Color* frame = getFrameBuffer();
   for(int i = 0; i < CONFIG_HUB75_WIDTH*CONFIG_HUB75_HEIGHT; i++) {
       Color k;
-      k.value = mp_obj_get_int64(mp_arr[i]);
+      k.value = mp_obj_get_int(mp_arr[i]);
       frame[i] = k;
   }
 
@@ -256,4 +255,4 @@ const mp_obj_module_t hub75_module = {
     .globals = (mp_obj_dict_t *)&hub75_module_globals,
 };
 
-#endif
+//#endif

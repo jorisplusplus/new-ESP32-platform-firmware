@@ -3,7 +3,8 @@ import virtualtimers, sys, machine, system
 requestedStandbyTime = 0
 onSleepCallback = None
 
-timeout = machine.nvs_get_u16('system', 'sleep') or 20000
+# timeout = machine.nvs_get_u16('system', 'sleep') or 20000
+timeout = 20000
 
 disabled = False
 enabled = False

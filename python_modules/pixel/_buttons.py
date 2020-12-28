@@ -22,7 +22,8 @@ def register(gpio, action=None):
 	global _pins, _gpios, _callbacks, _states
 	if gpio in _gpios:
 		return False
-	pin = machine.Pin(gpio, machine.Pin.IN, handler=_cb, trigger=machine.Pin.IRQ_ANYEDGE, debounce=200, acttime=100)
+	pin = machine.Pin(gpio, machine.Pin.IN)
+	pin.irq(handler=_cb, trigger=machine.Pin.IRQ_FALLING | machine.Pin.IRQ_RISING, wake=(machine.SLEEP | machine.DEEPSLEEP))
 	_gpios.append(gpio)
 	_pins.append(pin)
 	_callbacks.append(action)
