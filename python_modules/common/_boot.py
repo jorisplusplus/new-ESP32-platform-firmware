@@ -1,18 +1,15 @@
-# import gc
-# import uos
-# from flashbdev import bdev
-#
-# try:
-#     if bdev:
-#         uos.mount(bdev, "/")
-# except OSError:
-#     import inisetup
-#
-#     vfs = inisetup.setup()
-#
-# gc.collect()
+import gc, uos, sys, system, virtualtimers
+from flashbdev import bdev
 
-import uos, gc, sys, system, virtualtimers, machine
+try:
+    if bdev:
+        uos.mount(bdev, "/")
+except OSError:
+    import inisetup
+
+    vfs = inisetup.setup()
+
+gc.collect()
 
 folders = ['lib', 'apps', 'cache', 'cache/woezel', 'config']
 for folder in folders:

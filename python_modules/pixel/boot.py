@@ -1,17 +1,31 @@
-import machine, sys, system, time
+import machine, sys, system, time, valuestore
 
 rtc = machine.RTC()
 # rtc.write(0,0)
 # rtc.write(1,0)
 
+# Polyfill machine.[get|set]_*()
+class fakemachine():
+	nvs_getint = valuestore.nvs_get
+	nvs_setint = valuestore.nvs_set
+	nvs_get_u8 = valuestore.nvs_get
+	nvs_set_u8 = valuestore.nvs_set
+	nvs_get_u16 = valuestore.nvs_get
+	nvs_set_u16 = valuestore.nvs_set
+	nvs_get_u32 = valuestore.nvs_get
+	nvs_set_u32 = valuestore.nvs_set
+	nvs_getstr = valuestore.nvs_get
+	nvs_setstr = valuestore.nvs_set
+
+for key in dir(machine):
+	setattr(fakemachine, key, getattr(machine, key))
+
+globals()['machine'] = fakemachine
+sys.modules['machine'] = fakemachine
+
 # Default app
-# app = rtc.read_string()
-app = 'launcher'
-# if not app:
-# 	app = machine.nvs_getstr("system", 'default_app')
-# 	if not app:
-# 		app = 'launcher'
-#
+app = valuestore.nvs_get('system', 'launch_app') or valuestore.nvs_get('system', 'default_app') or 'launcher'
+
 # # Override with special boot mode apps if necessary
 # if machine.nvs_getint('system', 'factory_checked') != 2:
 # 	# Factory check mode

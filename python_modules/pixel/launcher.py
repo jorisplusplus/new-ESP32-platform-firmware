@@ -267,7 +267,7 @@ else:
         print("Press CTRL+C to reboot directly to a Python prompt.")
         wait = True
         while wait:
-                c = machine.stdin_get(1,1)
+                c = sys.stdin.read(1)
                 if c == "\x03" or c == "\x04": # CTRL+C or CTRL+D
                         wait = False
         import shell

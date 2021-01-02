@@ -132,7 +132,7 @@ STATIC mp_obj_t hub75_image(size_t n_args, const mp_obj_t *args) {
     uint32_t *image = malloc(width*height*4);
 
     for(int i = 0; i < width*height; i++) {
-        image[i] = mp_obj_get_int(mp_arr[i]);
+        image[i] = mp_obj_int_get_uint_checked(mp_arr[i]);
     }
 
     compositor_addImage((uint8_t *) image, x, y, width, height);
@@ -187,7 +187,7 @@ STATIC mp_obj_t hub75_gif(size_t n_args, const mp_obj_t *args) {
     uint32_t *image = malloc(width*height*4*numframes);
 
     for(int i = 0; i < width*height*numframes; i++) {
-        image[i] = mp_obj_get_int(mp_arr[i]);
+        image[i] = mp_obj_int_get_uint_checked(mp_arr[i]);
     }
 
     compositor_addAnimation((uint8_t *) image, x, y, width, height, numframes);
@@ -208,7 +208,7 @@ STATIC mp_obj_t hub75_frame(mp_obj_t arr_obj) {
   Color* frame = getFrameBuffer();
   for(int i = 0; i < CONFIG_HUB75_WIDTH*CONFIG_HUB75_HEIGHT; i++) {
       Color k;
-      k.value = mp_obj_get_int(mp_arr[i]);
+      k.value = mp_obj_int_get_uint_checked(mp_arr[i]);
       frame[i] = k;
   }
 

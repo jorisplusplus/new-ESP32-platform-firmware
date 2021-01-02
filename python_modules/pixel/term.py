@@ -76,7 +76,7 @@ def menu(title, items, selected = 0, text="", width=32):
 		lastSelected = selected
 		key = None
 		while not key:
-			key = machine.stdin_get(1,1)#sys.stdin.read(1)
+			key = sys.stdin.read(1)
 		feedPm()
 		try:
 			if key == "\x03" or key == "\x04": # CTRL+C or CTRL+D
@@ -100,7 +100,7 @@ def menu(title, items, selected = 0, text="", width=32):
 				pm.resume()
 				
 			elif (key == "\n" or key == "\r"):
-				junk = machine.stdin_get(10000, 10) #Read all remaining characters and throw them away
+				# junk = sys.stdin.read(10000) #Read all remaining characters and throw them away
 				return selected
 			else:
 				clear()
@@ -110,7 +110,7 @@ def menu(title, items, selected = 0, text="", width=32):
 			needFullDraw = True
 			sys.print_exception(e)
 			time.sleep(2)
-			junk = machine.stdin_get(10000, 10) #Read all remaining characters and throw them away
+			junk = sys.stdin.read(10000) #Read all remaining characters and throw them away
 
 def prompt(prompt, x, y, buff = ""):
 	running = True

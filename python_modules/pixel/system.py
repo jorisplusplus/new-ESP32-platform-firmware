@@ -1,4 +1,4 @@
-import machine, time, term, buttons
+import machine, time, term, buttons, valuestore
 
 # Deep sleep wakeup button
 pin = buttons._gpioMap[buttons.BTN_A]
@@ -50,7 +50,7 @@ def start(app, status=True):
             term.header(True, "Loading menu...")
         else:
             term.header(True, "Loading application "+app+"...")
-    machine.RTC().write_string(app)
+    valuestore.nvs_set('system', 'launch_app', app)
     machine.deepsleep(1)
 
 def home(status=False):
